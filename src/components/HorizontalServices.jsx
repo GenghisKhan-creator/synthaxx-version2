@@ -38,7 +38,7 @@ const HorizontalServices = () => {
             sectionRef.current,
             { translateX: 0 },
             {
-                translateX: "-200vw",
+                translateX: "-300vw",
                 ease: "none",
                 duration: 1,
                 scrollTrigger: {
@@ -57,7 +57,7 @@ const HorizontalServices = () => {
     return (
         <section className="overflow-hidden bg-black">
             <div ref={triggerRef}>
-                <div ref={sectionRef} className="h-screen w-[300vw] flex flex-row relative">
+                <div ref={sectionRef} className="h-screen w-[400vw] flex flex-row relative">
                     {/* Intro Slide */}
                     <div className="h-screen w-screen flex flex-col justify-center px-6 md:px-20 bg-black text-white shrink-0">
                         <span className="text-brand-green font-bold text-xs tracking-[0.4em] mb-8 uppercase">Core_Capabilities // 02</span>
