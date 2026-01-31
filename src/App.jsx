@@ -159,9 +159,9 @@ function App() {
                 <div>
                   <h4 className="font-bold uppercase text-xs tracking-widest mb-6">Connect</h4>
                   <ul className="space-y-4 text-sm font-bold uppercase">
-                    <li><a href="https://linkedin.com/company/synthaxx-solutions" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">LinkedIn</a></li>
-                    <li><a href="https://x.com/synthaxx" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">X / Twitter</a></li>
-                    <li><a href="https://github.com/synthaxx" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">GitHub</a></li>
+                    <li><a href="" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">LinkedIn</a></li>
+                    <li><a href="" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">X / Twitter</a></li>
+                    <li><a href="" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">GitHub</a></li>
                   </ul>
                 </div>
               </div>
