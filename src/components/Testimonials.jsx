@@ -137,16 +137,16 @@ const Testimonials = ({ isPage = false }) => {
             </div>
 
             <div className="max-w-[1400px] mx-auto relative z-10">
-                <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-12">
+                <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-10 md:gap-12">
                     <div className="max-w-3xl">
-                        <div className="flex items-center gap-4 mb-6">
+                        <div className="flex items-center gap-4 mb-4 md:mb-6">
                             <div className="w-12 h-[1px] bg-brand-green"></div>
                             <span className="text-xs font-bold uppercase tracking-[0.3em] text-brand-green">Global Reputation</span>
                         </div>
-                        <h2 className="text-[14vw] md:text-[110px] font-bold leading-[0.8] tracking-tighter uppercase mb-8">
+                        <h2 className="text-[14vw] sm:text-[10vw] md:text-[110px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8">
                             CLIENT <span className="text-brand-green">VOICES</span>
                         </h2>
-                        <p className="text-lg md:text-2xl font-bold uppercase text-black/40 max-w-xl leading-snug">
+                        <p className="text-base sm:text-lg md:text-2xl font-bold uppercase text-black/40 max-w-xl leading-snug">
                             We don't just build products; we build long-term partnerships rooted in technical excellence.
                         </p>
                     </div>
@@ -161,11 +161,11 @@ const Testimonials = ({ isPage = false }) => {
                     )}
                 </div>
 
-                <div ref={gridRef} className="testimonial-grid grid md:grid-cols-2 gap-8 md:gap-10 perspective-1000">
+                <div ref={gridRef} className="testimonial-grid grid md:grid-cols-2 gap-6 md:gap-10 perspective-1000">
                     {testimonials.map((t, i) => (
                         <div
                             key={i}
-                            className="testimonial-card opacity-0 group p-10 md:p-14 border-2 border-black rounded-[48px] bg-white hover:bg-black hover:text-white flex flex-col justify-between shadow-[20px_20px_0px_rgba(0,0,0,0.05)]"
+                            className="testimonial-card opacity-0 group p-6 sm:p-10 md:p-14 border-2 border-black rounded-[32px] md:rounded-[48px] bg-white hover:bg-black hover:text-white flex flex-col justify-between shadow-[10px_10px_0px_rgba(0,0,0,0.05)] md:shadow-[20px_20px_0px_rgba(0,0,0,0.05)]"
                         >
                             <div>
                                 <div className="flex justify-between items-start mb-16">
@@ -183,8 +183,8 @@ const Testimonials = ({ isPage = false }) => {
                                     </div>
                                 </div>
                                 <div className="relative">
-                                    <Quote className="absolute -top-10 -left-4 opacity-[0.03] text-brand-green group-hover:opacity-10 transition-opacity" size={120} />
-                                    <p className="text-2xl md:text-3xl font-bold leading-tight mb-10 relative z-10 italic">
+                                    <Quote className="absolute -top-6 md:-top-10 -left-2 md:-left-4 opacity-[0.03] text-brand-green group-hover:opacity-10 transition-opacity" size={60} />
+                                    <p className="text-lg sm:text-xl md:text-3xl font-bold leading-tight mb-8 md:mb-10 relative z-10 italic">
                                         "{t.content}"
                                     </p>
                                 </div>

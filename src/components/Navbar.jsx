@@ -121,15 +121,15 @@ const Navbar = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
-                        className="absolute top-full left-0 right-0 mt-4 px-4 lg:hidden z-40"
+                        className="absolute top-full left-0 right-0 mt-4 px-4 lg:hidden z-40 max-h-[80vh] overflow-y-auto"
                     >
-                        <div className="bg-white border-2 border-black rounded-[32px] p-8 shadow-[10px_10px_0px_rgba(0,0,0,1)]">
-                            <ul className="flex flex-col gap-6">
+                        <div className="bg-white border-2 border-black rounded-[24px] p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+                            <ul className="flex flex-col gap-4 sm:gap-6">
                                 {navLinks.map((item) => (
                                     <li key={item.label}>
                                         <Link
                                             to={item.path}
-                                            className={`text-3xl font-black uppercase flex items-center justify-center tracking-tighter block hover:text-brand-green transition-colors ${location.pathname === item.path ? 'text-brand-green' : 'text-black'}`}
+                                            className={`text-2xl sm:text-3xl font-black uppercase flex items-center justify-center tracking-tighter block hover:text-brand-green transition-colors ${location.pathname === item.path ? 'text-brand-green' : 'text-black'}`}
                                         >
                                             <ScrambleText text={item.label} />
                                         </Link>
@@ -137,14 +137,14 @@ const Navbar = () => {
                                 ))}
                             </ul>
 
-                            <div className="mt-12 pt-12 border-t border-black/10">
+                            <div className="mt-8 pt-8 border-t border-black/10">
                                 <Link
                                     to="/contact"
-                                    className="w-full bg-black text-white py-6 rounded-full flex items-center justify-center gap-4 font-bold text-2xl uppercase hover:bg-brand-green transition-colors group shadow-[6px_6px_0px_rgba(0,168,120,1)]"
+                                    className="w-full bg-black text-white py-4 sm:py-6 rounded-full flex items-center justify-center gap-4 font-bold text-xl sm:text-2xl uppercase hover:bg-brand-green transition-colors group shadow-[4px_4px_0px_rgba(0,168,120,1)]"
                                 >
-                                    <ScrambleText text="GET IN TOUCH" /> <ArrowUpRight size={30} />
+                                    <ScrambleText text="GET IN TOUCH" /> <ArrowUpRight size={24} />
                                 </Link>
-                                <div className="mt-12 flex justify-center gap-10 text-black/40 font-black uppercase text-[10px] tracking-[0.3em]">
+                                <div className="mt-8 flex justify-center gap-6 sm:gap-10 text-black/40 font-black uppercase text-[10px] tracking-[0.3em]">
                                     <a href="#" className="hover:text-black">LinkedIn</a>
                                     <a href="#" className="hover:text-black">X / Twitter</a>
                                     <a href="#" className="hover:text-black">GitHub</a>
