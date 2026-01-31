@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { ArrowRight, Palette, Fingerprint, Type, Layers, Share2, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -106,9 +107,9 @@ const Branding = () => {
                             <p className="text-xs font-bold uppercase text-white/60 mb-8 leading-relaxed max-w-xs">
                                 Our bespoke branding process is designed for companies that refuse to be ignored.
                             </p>
-                            <button className="bg-white text-black px-10 py-4 rounded-full font-bold uppercase text-sm hover:bg-brand-green hover:text-white transition-all">
-                                Download Portfolio
-                            </button>
+                            <Link to="/portfolio" className="bg-white text-black px-10 py-4 rounded-full font-bold uppercase text-sm hover:bg-brand-green hover:text-white transition-all inline-block">
+                                View Portfolio
+                            </Link>
                         </div>
                     </div>
                 </div>

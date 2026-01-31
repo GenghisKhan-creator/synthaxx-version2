@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +14,9 @@ import AI from './pages/AI';
 import Portfolio from './pages/Portfolio';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
+import TestimonialsPage from './pages/TestimonialsPage';
+import WebDev from './pages/WebDev';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 import CustomCursor from './components/CustomCursor';
@@ -40,11 +43,14 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/expertise" element={<PageTransition><Expertise /></PageTransition>} />
         <Route path="/software" element={<PageTransition><Software /></PageTransition>} />
+        <Route path="/web-dev" element={<PageTransition><WebDev /></PageTransition>} />
         <Route path="/branding" element={<PageTransition><Branding /></PageTransition>} />
         <Route path="/ai" element={<PageTransition><AI /></PageTransition>} />
         <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
         <Route path="/portfolio/:id" element={<PageTransition><ProjectDetail /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/testimonials" element={<PageTransition><TestimonialsPage /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
@@ -109,7 +115,7 @@ function App() {
           <footer className="py-20 border-t border-black px-6">
             <div className="max-w-[1400px] mx-auto grid md:grid-cols-4 gap-12">
               <div className="col-span-2">
-                <div className="text-4xl font-bold uppercase mb-6 tracking-tighter">Synthaxx<br />Solutions.</div>
+                <Link to="/" className="text-4xl font-bold uppercase mb-6 tracking-tighter block hover:text-brand-green transition-colors">Synthaxx<br />Solutions.</Link>
                 <p className="max-w-xs text-sm font-bold uppercase text-black/40">
                   Architecting the digital future with precision and purpose. Forward-thinking solutions for enterprise leaders.
                 </p>
@@ -117,11 +123,13 @@ function App() {
               <div>
                 <h4 className="font-bold uppercase text-xs tracking-widest mb-6">Explore</h4>
                 <ul className="space-y-4 text-sm font-bold uppercase">
-                  <li><a href="/expertise" className="hover:text-brand-green">Expertise</a></li>
-                  <li><a href="/software" className="hover:text-brand-green">Software</a></li>
-                  <li><a href="/branding" className="hover:text-brand-green">Branding</a></li>
-                  <li><a href="/portfolio" className="hover:text-brand-green">Portfolio</a></li>
-                  <li><a href="/contact" className="hover:text-brand-green">Contact</a></li>
+                  <li><Link to="/expertise" className="hover:text-brand-green">Expertise</Link></li>
+                  <li><Link to="/software" className="hover:text-brand-green">Software</Link></li>
+                  <li><Link to="/web-dev" className="hover:text-brand-green">Web Dev</Link></li>
+                  <li><Link to="/branding" className="hover:text-brand-green">Branding</Link></li>
+                  <li><Link to="/portfolio" className="hover:text-brand-green">Portfolio</Link></li>
+                  <li><Link to="/testimonials" className="hover:text-brand-green">Testimonials</Link></li>
+                  <li><Link to="/contact" className="hover:text-brand-green">Contact</Link></li>
                 </ul>
               </div>
               <div>

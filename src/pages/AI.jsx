@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Brain, Cpu, Database, Network, Zap, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -72,9 +73,9 @@ const AI = () => {
                             Synthaxx builds autonomous intelligence that doesn't just process data—it reasons with it.
                         </p>
                         <div className="ai-hero-text flex flex-wrap gap-6">
-                            <button className="bg-brand-green text-white px-10 py-5 rounded-full font-bold uppercase hover:bg-white hover:text-black transition-all group flex items-center gap-4">
+                            <Link to="/contact" className="bg-brand-green text-white px-10 py-5 rounded-full font-bold uppercase hover:bg-white hover:text-black transition-all group flex items-center gap-4">
                                 Connect Agent <Zap size={20} className="fill-current" />
-                            </button>
+                            </Link>
                             <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-white/40">
                                 <ShieldCheck className="text-brand-green" />
                                 SOC2_TYPE_II_COMPLIANT

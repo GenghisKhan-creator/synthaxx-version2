@@ -5,8 +5,13 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import codeFlowImg from '../assets/code_flow.png';
-import uiSystemImg from '../assets/ui_system.png';
+import nexusCoreImg from '../assets/generated/nexus_core.png';
+import vividUiImg from '../assets/generated/vivid_ui.png';
+import synthaxxV2Img from '../assets/generated/synthaxx_v2.png';
+import nexusCoreDetailImg from '../assets/generated/nexus_core_detail.png';
+import vividUiDetailImg from '../assets/generated/vivid_ui_detail.png';
+import synthaxxV2DetailImg from '../assets/generated/synthaxx_v2_detail.png';
+import quantumLedgerImg from '../assets/generated/quantum_ledger.png';
 
 const ProjectDetail = () => {
     const { id } = useParams();
@@ -18,7 +23,8 @@ const ProjectDetail = () => {
             title: "Nexus Core",
             category: "Software Development",
             year: "2025",
-            image: codeFlowImg,
+            image: nexusCoreImg,
+            detailImage: nexusCoreDetailImg,
             stats: [
                 { label: "Performance", value: "+45%", icon: <Cpu className="text-brand-green" /> },
                 { label: "Scale", value: "10M+", icon: <BarChart className="text-brand-green" /> },
@@ -30,7 +36,8 @@ const ProjectDetail = () => {
             title: "Vivid UI",
             category: "Web Engineering",
             year: "2024",
-            image: uiSystemImg,
+            image: vividUiImg,
+            detailImage: vividUiDetailImg,
             stats: [
                 { label: "Load Time", value: "-60%", icon: <Cpu className="text-brand-green" /> },
                 { label: "Conversion", value: "+22%", icon: <BarChart className="text-brand-green" /> },
@@ -42,13 +49,27 @@ const ProjectDetail = () => {
             title: "Synthaxx V2",
             category: "Visual Identity",
             year: "2026",
-            image: codeFlowImg,
+            image: synthaxxV2Img,
+            detailImage: synthaxxV2DetailImg,
             stats: [
                 { label: "Brand Recall", value: "85%", icon: <Cpu className="text-brand-green" /> },
                 { label: "Engagement", value: "+40%", icon: <BarChart className="text-brand-green" /> },
                 { label: "Assets", value: "500+", icon: <Globe className="text-brand-green" /> }
             ],
             description: "The evolution of the Synthaxx brand. A meticulous visual language balancing technical precision with artistic avant-garde, defining the next era of agency identity."
+        },
+        "quantum-ledger": {
+            title: "Quantum Ledger",
+            category: "Fintech Systems",
+            year: "2025",
+            image: quantumLedgerImg,
+            detailImage: nexusCoreDetailImg,
+            stats: [
+                { label: "Tx / Sec", value: "100K", icon: <Cpu className="text-brand-green" /> },
+                { label: "Security", value: "L1", icon: <BarChart className="text-brand-green" /> },
+                { label: "Nodes", value: "500+", icon: <Globe className="text-brand-green" /> }
+            ],
+            description: "A decentralized consensus engine built for high-frequency financial transitions. Quantum Ledger provides the backbone for next-generation digital assets with military-grade encryption."
         }
     };
 
@@ -142,6 +163,29 @@ const ProjectDetail = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Technical Deep Dive */}
+                <div className="grid lg:grid-cols-2 gap-20 mb-32 items-center">
+                    <div className="order-2 lg:order-1">
+                        <span className="text-xs font-black uppercase tracking-[0.4em] text-brand-green mb-6 block">Module_Technical_Specs</span>
+                        <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-8">Technical <br /><span className="text-brand-green">Deep Dive.</span></h2>
+                        <p className="text-lg font-bold uppercase text-black/60 leading-relaxed mb-10">
+                            Our architecture is designed for extreme durability. We implemented a multi-layered verification system that ensures data integrity at every node, resulting in a system that doesn't just work—it prevails.
+                        </p>
+                        <div className="space-y-4">
+                            {[1, 2, 3].map((item) => (
+                                <div key={item} className="flex items-center gap-4 py-4 border-b border-black/10 group cursor-pointer hover:border-brand-green transition-colors">
+                                    <span className="text-xs font-black text-brand-green">0{item}</span>
+                                    <span className="text-sm font-bold uppercase tracking-widest group-hover:text-black transition-colors">Architecture_Audit_v1.0</span>
+                                    <ArrowUpRight size={14} className="ml-auto opacity-20 group-hover:opacity-100 transition-opacity" />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="order-1 lg:order-2 aspect-square rounded-[40px] overflow-hidden border border-black group">
+                        <img src={project.detailImage} alt="Technical Detail" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                    </div>
                 </div>
 
                 {/* Footer CTA */}

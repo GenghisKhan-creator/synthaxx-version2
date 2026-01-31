@@ -51,8 +51,10 @@ const Navbar = () => {
     const navLinks = [
         { label: 'EXPERTISE', path: '/expertise' },
         { label: 'SOFTWARE', path: '/software' },
+        { label: 'WEB DEV', path: '/web-dev' },
         { label: 'BRANDING', path: '/branding' },
         { label: 'PORTFOLIO', path: '/portfolio' },
+        { label: 'TESTIMONIALS', path: '/testimonials' },
         { label: 'CONTACT', path: '/contact' }
     ];
 
@@ -127,7 +129,7 @@ const Navbar = () => {
                                     <li key={item.label}>
                                         <Link
                                             to={item.path}
-                                            className={`text-6xl font-black uppercase tracking-tighter block hover:text-brand-green transition-colors ${location.pathname === item.path ? 'text-brand-green' : 'text-black'}`}
+                                            className={`text-3xl font-black uppercase flex items-center justify-center tracking-tighter block hover:text-brand-green transition-colors ${location.pathname === item.path ? 'text-brand-green' : 'text-black'}`}
                                         >
                                             <ScrambleText text={item.label} />
                                         </Link>

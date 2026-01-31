@@ -5,8 +5,10 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import codeFlowImg from '../assets/code_flow.png';
-import uiSystemImg from '../assets/ui_system.png';
+import nexusCoreImg from '../assets/generated/nexus_core.png';
+import vividUiImg from '../assets/generated/vivid_ui.png';
+import synthaxxV2Img from '../assets/generated/synthaxx_v2.png';
+import quantumLedgerImg from '../assets/generated/quantum_ledger.png';
 
 const Portfolio = () => {
     const container = useRef();
@@ -17,7 +19,7 @@ const Portfolio = () => {
             title: "Nexus Core",
             category: "Software Development",
             year: "2025",
-            image: codeFlowImg,
+            image: nexusCoreImg,
             color: "var(--color-accent-green-light)"
         },
         {
@@ -25,7 +27,7 @@ const Portfolio = () => {
             title: "Vivid UI",
             category: "Web Engineering",
             year: "2024",
-            image: uiSystemImg,
+            image: vividUiImg,
             color: "var(--color-accent-green-mint)"
         },
         {
@@ -33,8 +35,16 @@ const Portfolio = () => {
             title: "Synthaxx V2",
             category: "Visual Identity",
             year: "2026",
-            image: codeFlowImg,
+            image: synthaxxV2Img,
             color: "var(--color-accent-green-light)"
+        },
+        {
+            id: "quantum-ledger",
+            title: "Quantum Ledger",
+            category: "Fintech Systems",
+            year: "2025",
+            image: quantumLedgerImg,
+            color: "var(--color-accent-green-mint)"
         }
     ];
 
@@ -139,12 +149,13 @@ const Portfolio = () => {
                     <div className="inline-block relative">
                         <div className="text-[15vw] font-bold leading-none tracking-tighter uppercase opacity-5">Synthaxx</div>
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <button
-                                data-cursor="ALL WORKS"
-                                className="bg-black text-white px-16 py-8 rounded-full font-bold text-xl hover:bg-brand-green transition-all uppercase"
+                            <Link
+                                to="/contact"
+                                data-cursor="LET'S GO"
+                                className="bg-black text-white px-16 py-8 rounded-full font-bold text-xl hover:bg-brand-green transition-all uppercase inline-block"
                             >
-                                View All Case Studies
-                            </button>
+                                Start a Project
+                            </Link>
                         </div>
                     </div>
                 </div>

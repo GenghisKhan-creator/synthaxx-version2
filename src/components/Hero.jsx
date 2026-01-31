@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { ArrowRight, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -97,19 +98,21 @@ const Hero = () => {
                                 </div>
                             </div>
 
-                            <div className="flex flex-wrap gap-4 mt-8 md:mt-12">
-                                <button
+                            <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-12">
+                                <Link
+                                    to="/contact"
                                     data-cursor="LAUNCH"
-                                    className="hero-btn flex-1 sm:flex-none bg-black text-white px-8 py-4 rounded-full font-bold text-sm flex items-center justify-center gap-4 hover:bg-brand-green transition-all uppercase group"
+                                    className="hero-btn w-full sm:w-auto bg-black text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-sm flex items-center justify-center gap-4 hover:bg-brand-green transition-all uppercase group"
                                 >
                                     Launch Project <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
-                                <button
+                                </Link>
+                                <Link
+                                    to="/expertise"
                                     data-cursor="EXPLORE"
-                                    className="hero-btn flex-1 sm:flex-none border border-black px-10 py-4 rounded-full font-bold text-sm hover:bg-black hover:text-white transition-all uppercase"
+                                    className="hero-btn w-full sm:w-auto border border-black px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-sm hover:bg-black hover:text-white transition-all uppercase flex items-center justify-center"
                                 >
                                     Expertise
-                                </button>
+                                </Link>
                             </div>
                         </div>
 

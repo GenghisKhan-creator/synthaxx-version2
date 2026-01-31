@@ -92,7 +92,7 @@ const HorizontalServices = () => {
                                 <Link
                                     to={service.path}
                                     data-cursor="LEARN MORE"
-                                    className="inline-flex items-center gap-4 bg-black text-white px-10 py-5 rounded-full font-bold uppercase transition-all hover:bg-brand-green group border border-black shadow-[5px_5px_0px_rgba(0,0,0,0.2)] active:shadow-none"
+                                    className="inline-flex items-center justify-center gap-4 bg-black text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-sm md:text-base uppercase transition-all hover:bg-brand-green group border border-black shadow-[5px_5px_0px_rgba(0,0,0,0.2)] active:shadow-none w-full sm:w-auto"
                                 >
                                     View Specialty <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                                 </Link>

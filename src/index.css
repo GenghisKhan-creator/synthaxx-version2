@@ -130,3 +130,7 @@ img {
   z-index: 9999;
   background-image: url('https://grainy-gradients.vercel.app/noise.svg');
 }
+
+.perspective-1000 {
+  perspective: 1000px;
+}
