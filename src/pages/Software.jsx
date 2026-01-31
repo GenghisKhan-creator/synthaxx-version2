@@ -50,7 +50,6 @@ const Software = () => {
             x: -30,
             opacity: 0,
             duration: 0.8,
-            stagger: 0.1,
             ease: "power2.out"
         });
     }, { scope: container });
