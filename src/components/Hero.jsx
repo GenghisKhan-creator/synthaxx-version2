@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GlitchText from './GlitchText';
 
 import architectImg from '../assets/architect.png';
 import codeFlowImg from '../assets/code_flow.png';
@@ -65,6 +66,45 @@ const Hero = () => {
             yoyo: true,
             ease: "sine.inOut"
         });
+
+        // Headline Gravity / Magnetic Typography
+        const heroTitle = container.current.querySelector("h1");
+        const handleMouseMove = (e) => {
+            const rect = container.current.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            gsap.to(heroTitle, {
+                x: x * 30,
+                y: y * 30,
+                rotationX: -y * 10,
+                rotationY: x * 10,
+                duration: 0.8,
+                ease: "power2.out",
+                transformPerspective: 1000
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(heroTitle, {
+                x: 0,
+                y: 0,
+                rotationX: 0,
+                rotationY: 0,
+                duration: 1,
+                ease: "power4.out"
+            });
+        };
+
+        container.current.addEventListener("mousemove", handleMouseMove);
+        container.current.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            if (container.current) {
+                container.current.removeEventListener("mousemove", handleMouseMove);
+                container.current.removeEventListener("mouseleave", handleMouseLeave);
+            }
+        };
     }, { scope: container });
 
     return (
@@ -79,9 +119,9 @@ const Hero = () => {
                                     building the architecture of global digital products
                                 </div>
                                 <h1 className="hero-line text-[12vw] sm:text-[10vw] lg:text-[100px] font-bold leading-[0.85] tracking-tight uppercase">
-                                    WE DESIGN<br />
-                                    BRANDS THAT<br />
-                                    SPEAK <sup>&</sup> WORK
+                                    <GlitchText text="WE DESIGN" /><br />
+                                    <GlitchText text="BRANDS THAT" delay={0.2} /><br />
+                                    <GlitchText text="SPEAK" delay={0.4} /> <sup>&</sup> <GlitchText text="WORK" delay={0.6} />
                                 </h1>
                             </div>
 
@@ -177,7 +217,7 @@ const Hero = () => {
 
                         {/* Backend Arch */}
                         <div className="hero-card relative aspect-[3/4] arch-top overflow-hidden border border-black" data-cursor="VIEW">
-                            <img src={codeFlowImg} alt="Source Code" className="floating-img w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                            <img src={codeFlowImg} alt="Source Code" loading="eager" decoding="sync" className="floating-img w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                             <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
                                 <div className="text-white">
                                     <div className="text-2xl md:text-3xl font-bold uppercase tracking-tighter text-white">backend</div>
@@ -193,7 +233,7 @@ const Hero = () => {
 
                         {/* Developer Portrait Arch */}
                         <div className="hero-card relative aspect-[4/5] arch-top overflow-hidden border border-black sm:mt-[-40px]" data-cursor="DEV">
-                            <img src={architectImg} alt="Software Developer" className="floating-img w-full h-full object-cover" />
+                            <img src={architectImg} alt="Software Developer" loading="eager" decoding="sync" className="floating-img w-full h-full object-cover" />
                             <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col items-center pointer-events-none">
                                 <div className="text-white text-lg md:text-xl font-serif italic mb-2 tracking-widest drop-shadow-lg">SYNTHAXX_V.1</div>
                             </div>

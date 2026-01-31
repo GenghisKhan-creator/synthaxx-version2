@@ -41,6 +41,8 @@ const LogoMarquee = () => {
                                     <img
                                         src={partner.logo}
                                         alt={partner.name}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-full h-full object-contain group-hover:scale-110 transition-all duration-700 block"
                                         onError={(e) => {
                                             console.error(`FAILED: ${partner.logo}`);

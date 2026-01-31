@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
+import GlitchText from '../components/GlitchText';
 
 const Branding = () => {
     const container = useRef();
@@ -55,13 +57,19 @@ const Branding = () => {
 
     return (
         <div ref={container} className="pt-32 pb-20 px-4 min-h-screen">
+            <SEO
+                title="Brand Identity"
+                description="We architect visual legacies. Meticulous design systems and unique brand identities for industry leaders."
+            />
             <div className="max-w-[1400px] mx-auto">
                 <div className="brand-hero text-center mb-40">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-black rounded-full text-[10px] font-bold uppercase tracking-widest mb-10">
                         <Fingerprint size={14} className="text-brand-green" /> Unique Identity Design
                     </div>
                     <h1 className="text-[12vw] md:text-[160px] font-bold leading-[0.7] tracking-tighter uppercase mb-20 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-                        EYE <span className="text-brand-green">CANDY</span><br />FOR THE<br />BRAIN.
+                        <GlitchText text="EYE" /> <span className="text-brand-green"><GlitchText text="CANDY" delay={0.2} /></span><br />
+                        <GlitchText text="FOR THE" delay={0.4} /><br />
+                        <GlitchText text="BRAIN." delay={0.6} />
                     </h1>
                     <p className="max-w-3xl mx-auto text-xl font-medium text-black/60 uppercase leading-snug">
                         We don't just design logos. We architect visual legacies that demand respect and evoke emotion through minimalist precision.

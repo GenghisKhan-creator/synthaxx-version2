@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
+import GlitchText from '../components/GlitchText';
 
 const AI = () => {
     const container = useRef();
@@ -59,6 +61,10 @@ const AI = () => {
 
     return (
         <div ref={container} className="min-h-screen pt-32 pb-20 px-4 bg-black text-white selection:bg-brand-green selection:text-white">
+            <SEO
+                title="AI & Machine Learning"
+                description="Harnessing Neural Logic. We build autonomous AI agents and enterprise-grade predictive models."
+            />
             <div className="max-w-[1400px] mx-auto">
                 {/* Hero Section */}
                 <div className="grid lg:grid-cols-2 gap-20 items-center mb-40">
@@ -66,8 +72,8 @@ const AI = () => {
                         <span className="ai-hero-text inline-block px-4 py-1 border border-brand-green text-brand-green text-[10px] font-black uppercase tracking-[0.4em] mb-8 rounded-full">
                             INTEL_MODULE_v4.0
                         </span>
-                        <h1 className="ai-hero-text text-[12vw] md:text-[120px] font-bold leading-[0.85] tracking-tighter uppercase mb-10">
-                            NEURAL <br /> <span className="text-brand-green">LOGIC.</span>
+                        <h1 className="ai-hero-text text-[12vw] md:text-[120px] font-bold leading-[0.85] tracking-tighter uppercase mb-10 transition-transform duration-75">
+                            <GlitchText text="NEURAL" /> <br /> <span className="text-brand-green"><GlitchText text="LOGIC." delay={0.2} /></span>
                         </h1>
                         <p className="ai-hero-text text-xl md:text-2xl font-medium uppercase text-white/40 max-w-lg leading-tight mb-12">
                             Synthaxx builds autonomous intelligence that doesn't just process data—it reasons with it.

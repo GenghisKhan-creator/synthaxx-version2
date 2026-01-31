@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FAQ from '../components/FAQ';
+import SEO from '../components/SEO';
+import GlitchText from '../components/GlitchText';
 
 const Expertise = () => {
     const container = useRef();
@@ -67,15 +69,59 @@ const Expertise = () => {
                 }
             }
         );
+
+        // Headline Gravity
+        const title = container.current.querySelector("h1");
+        const handleMouseMove = (e) => {
+            const rect = container.current.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            gsap.to(title, {
+                x: x * 20,
+                y: y * 20,
+                rotationX: -y * 10,
+                rotationY: x * 10,
+                duration: 0.8,
+                ease: "power2.out",
+                transformPerspective: 1000
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(title, {
+                x: 0,
+                y: 0,
+                rotationX: 0,
+                rotationY: 0,
+                duration: 1,
+                ease: "power4.out"
+            });
+        };
+
+        container.current.addEventListener("mousemove", handleMouseMove);
+        container.current.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            if (container.current) {
+                container.current.removeEventListener("mousemove", handleMouseMove);
+                container.current.removeEventListener("mouseleave", handleMouseLeave);
+            }
+        };
     }, { scope: container });
 
     return (
         <div ref={container} className="pt-24 md:pt-32 pb-20 px-4 min-h-screen overflow-hidden">
+            <SEO
+                title="Our Expertise"
+                description="Specialized digital craftsmanship across software engineering, web development, and strategic brand design."
+            />
             <div className="max-w-[1400px] mx-auto">
                 <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-12">
                     <div className="max-w-3xl expertise-title">
-                        <h1 className="text-[12vw] md:text-[120px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8">
-                            OUR <span className="text-brand-green">CORE</span><br />EXPERTISE
+                        <h1 className="text-[12vw] md:text-[120px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8 transition-transform duration-75">
+                            <GlitchText text="OUR" /> <span className="text-brand-green"><GlitchText text="CORE" delay={0.2} /></span><br />
+                            <GlitchText text="EXPERTISE" delay={0.4} />
                         </h1>
                         <p className="text-base md:text-xl font-medium max-w-xl text-black/60 uppercase">
                             We operate at the intersection of rigorous engineering and avant-garde design.

@@ -145,9 +145,9 @@ const Navbar = () => {
                                     <ScrambleText text="GET IN TOUCH" /> <ArrowUpRight size={24} />
                                 </Link>
                                 <div className="mt-8 flex justify-center gap-6 sm:gap-10 text-black/40 font-black uppercase text-[10px] tracking-[0.3em]">
-                                    <a href="#" className="hover:text-black">LinkedIn</a>
-                                    <a href="#" className="hover:text-black">X / Twitter</a>
-                                    <a href="#" className="hover:text-black">GitHub</a>
+                                    <a href="https://linkedin.com/company/synthaxx-solutions" target="_blank" rel="noopener noreferrer" className="hover:text-black">LinkedIn</a>
+                                    <a href="https://x.com/synthaxx" target="_blank" rel="noopener noreferrer" className="hover:text-black">X / Twitter</a>
+                                    <a href="https://github.com/synthaxx" target="_blank" rel="noopener noreferrer" className="hover:text-black">GitHub</a>
                                 </div>
                             </div>
                         </div>

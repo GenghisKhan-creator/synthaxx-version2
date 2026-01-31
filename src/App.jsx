@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { Toaster } from 'react-hot-toast';
+import { HelmetProvider } from 'react-helmet-async';
 
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -17,12 +19,15 @@ import Contact from './pages/Contact';
 import TestimonialsPage from './pages/TestimonialsPage';
 import WebDev from './pages/WebDev';
 import NotFound from './pages/NotFound';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import './App.css';
 
 import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
 import PageTransition from './components/PageTransition';
 import CornerHUD from './components/CornerHUD';
+import SpotlightOverlay from './components/SpotlightOverlay';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +55,8 @@ const AnimatedRoutes = () => {
         <Route path="/portfolio/:id" element={<PageTransition><ProjectDetail /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/testimonials" element={<PageTransition><TestimonialsPage /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><TermsOfService /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
@@ -98,60 +105,78 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <ScrollToTop />
-      <Preloader onComplete={() => setIsLoading(false)} />
-      <CustomCursor />
-      <CornerHUD />
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <Preloader onComplete={() => setIsLoading(false)} />
+        <CustomCursor />
+        <CornerHUD />
+        <SpotlightOverlay />
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: '#000',
+              color: '#fff',
+              borderRadius: '0px',
+              border: '2px solid #00A878',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em'
+            },
+          }}
+        />
 
-      {!isLoading && (
-        <div className="min-h-screen bg-white selection:bg-brand-green selection:text-white bg-grid font-outfit">
-          <div className="noise-overlay"></div>
-          <Navbar />
-          <main>
-            <AnimatedRoutes />
-          </main>
+        {!isLoading && (
+          <div className="min-h-screen bg-white selection:bg-brand-green selection:text-white bg-grid font-outfit">
+            <div className="noise-overlay"></div>
+            <Navbar />
+            <main>
+              <AnimatedRoutes />
+            </main>
 
-          <footer className="py-20 border-t border-black px-6">
-            <div className="max-w-[1400px] mx-auto grid md:grid-cols-4 gap-12">
-              <div className="col-span-2">
-                <Link to="/" className="text-4xl font-bold uppercase mb-6 tracking-tighter block hover:text-brand-green transition-colors">Synthaxx<br />Solutions.</Link>
-                <p className="max-w-xs text-sm font-bold uppercase text-black/40">
-                  Architecting the digital future with precision and purpose. Forward-thinking solutions for enterprise leaders.
-                </p>
+            <footer className="py-20 border-t border-black px-6">
+              <div className="max-w-[1400px] mx-auto grid md:grid-cols-4 gap-12">
+                <div className="col-span-2">
+                  <Link to="/" className="text-4xl font-bold uppercase mb-6 tracking-tighter block hover:text-brand-green transition-colors">Synthaxx<br />Solutions.</Link>
+                  <p className="max-w-xs text-sm font-bold uppercase text-black/40">
+                    Architecting the digital future with precision and purpose. Forward-thinking solutions for enterprise leaders.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold uppercase text-xs tracking-widest mb-6">Explore</h4>
+                  <ul className="space-y-4 text-sm font-bold uppercase">
+                    <li><Link to="/expertise" className="hover:text-brand-green">Expertise</Link></li>
+                    <li><Link to="/software" className="hover:text-brand-green">Software</Link></li>
+                    <li><Link to="/web-dev" className="hover:text-brand-green">Web Dev</Link></li>
+                    <li><Link to="/branding" className="hover:text-brand-green">Branding</Link></li>
+                    <li><Link to="/portfolio" className="hover:text-brand-green">Portfolio</Link></li>
+                    <li><Link to="/testimonials" className="hover:text-brand-green">Testimonials</Link></li>
+                    <li><Link to="/contact" className="hover:text-brand-green">Contact</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold uppercase text-xs tracking-widest mb-6">Connect</h4>
+                  <ul className="space-y-4 text-sm font-bold uppercase">
+                    <li><a href="https://linkedin.com/company/synthaxx-solutions" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">LinkedIn</a></li>
+                    <li><a href="https://x.com/synthaxx" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">X / Twitter</a></li>
+                    <li><a href="https://github.com/synthaxx" target="_blank" rel="noopener noreferrer" className="hover:text-brand-green">GitHub</a></li>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold uppercase text-xs tracking-widest mb-6">Explore</h4>
-                <ul className="space-y-4 text-sm font-bold uppercase">
-                  <li><Link to="/expertise" className="hover:text-brand-green">Expertise</Link></li>
-                  <li><Link to="/software" className="hover:text-brand-green">Software</Link></li>
-                  <li><Link to="/web-dev" className="hover:text-brand-green">Web Dev</Link></li>
-                  <li><Link to="/branding" className="hover:text-brand-green">Branding</Link></li>
-                  <li><Link to="/portfolio" className="hover:text-brand-green">Portfolio</Link></li>
-                  <li><Link to="/testimonials" className="hover:text-brand-green">Testimonials</Link></li>
-                  <li><Link to="/contact" className="hover:text-brand-green">Contact</Link></li>
-                </ul>
+              <div className="max-w-[1400px] mx-auto mt-20 pt-8 border-t border-black/10 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-black/40">
+                <div>© 2026 SYNTHAXX SOLUTIONS. ALL RIGHTS RESERVED.</div>
+                <div className="flex gap-8">
+                  <Link to="/privacy" className="hover:text-black">Privacy Policy</Link>
+                  <Link to="/terms" className="hover:text-black">Terms of Service</Link>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold uppercase text-xs tracking-widest mb-6">Connect</h4>
-                <ul className="space-y-4 text-sm font-bold uppercase">
-                  <li><a href="#" className="hover:text-brand-green">LinkedIn</a></li>
-                  <li><a href="#" className="hover:text-brand-green">X / Twitter</a></li>
-                  <li><a href="#" className="hover:text-brand-green">GitHub</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="max-w-[1400px] mx-auto mt-20 pt-8 border-t border-black/10 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-black/40">
-              <div>© 2026 SYNTHAXX SOLUTIONS. ALL RIGHTS RESERVED.</div>
-              <div className="flex gap-8">
-                <a href="#" className="hover:text-black">Privacy Policy</a>
-                <a href="#" className="hover:text-black">Terms of Service</a>
-              </div>
-            </div>
-          </footer>
-        </div>
-      )}
-    </Router>
+            </footer>
+          </div>
+        )}
+      </Router>
+    </HelmetProvider>
   );
 }
 

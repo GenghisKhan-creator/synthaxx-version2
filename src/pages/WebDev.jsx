@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
+import GlitchText from '../components/GlitchText';
 
 const WebDev = () => {
     const container = useRef();
@@ -56,12 +58,17 @@ const WebDev = () => {
 
     return (
         <div ref={container} className="pt-24 md:pt-32 pb-20 px-4 min-h-screen">
+            <SEO
+                title="Web Engineering"
+                description="Immersive, high-performance web experiences built with cutting-edge technology and precision design."
+            />
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center mb-24 md:mb-40">
                     <div>
                         <div className="mb-8 md:mb-12 overflow-hidden">
-                            <h1 className="web-hero-line text-[12vw] md:text-[120px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8">
-                                DIGITAL <span className="text-brand-green">FRONTIER</span><br />EXPERIENCE
+                            <h1 className="web-hero-line text-[12vw] md:text-[120px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8 transition-transform duration-75">
+                                <GlitchText text="DIGITAL" /> <span className="text-brand-green"><GlitchText text="FRONTIER" delay={0.2} /></span><br />
+                                <GlitchText text="EXPERIENCE" delay={0.4} />
                             </h1>
                             <p className="web-hero-line text-base md:text-lg font-bold uppercase text-black/40 max-w-lg leading-tight">
                                 We architect high-end web applications that bridge the gap between technical complexity and pure visual storytelling.

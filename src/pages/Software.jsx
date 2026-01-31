@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
+import GlitchText from '../components/GlitchText';
 
 const Software = () => {
     const container = useRef();
@@ -57,12 +59,17 @@ const Software = () => {
 
     return (
         <div ref={container} className="pt-24 md:pt-32 pb-20 px-4 min-h-screen">
+            <SEO
+                title="Software Engineering"
+                description="Scalable, enterprise-grade software solutions engineered for performance and reliability."
+            />
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center mb-24 md:mb-40">
                     <div>
                         <div className="mb-8 md:mb-12 overflow-hidden">
-                            <h1 className="soft-hero-line text-[12vw] md:text-[120px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8">
-                                HIGH <span className="text-brand-green">SCALE</span><br />SYSTEMS
+                            <h1 className="soft-hero-line text-[12vw] md:text-[120px] font-bold leading-[0.8] tracking-tighter uppercase mb-6 md:mb-8 transition-transform duration-75">
+                                <GlitchText text="HIGH" /> <span className="text-brand-green"><GlitchText text="SCALE" delay={0.2} /></span><br />
+                                <GlitchText text="SYSTEMS" delay={0.4} />
                             </h1>
                             <p className="soft-hero-line text-base md:text-lg font-bold uppercase text-black/40 max-w-lg leading-tight">
                                 We build the invisible engines that power the world's most demanding digital experiences. No fluff, just performance.

@@ -1,9 +1,14 @@
 import Testimonials from '../components/Testimonials';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const TestimonialsPage = () => {
     return (
         <div className="min-h-screen">
+            <SEO
+                title="Client Stories"
+                description="Trust earned through technical excellence. See what industry leaders are saying about their partnership with Synthaxx Solutions."
+            />
             <Testimonials isPage={true} />
 
             {/* Additional page-specific content could go here, like a 'Work with us' CTA */}

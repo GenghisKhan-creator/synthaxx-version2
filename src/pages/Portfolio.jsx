@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
+import GlitchText from '../components/GlitchText';
 
 import nexusCoreImg from '../assets/generated/nexus_core.png';
 import vividUiImg from '../assets/generated/vivid_ui.png';
@@ -114,9 +116,13 @@ const Portfolio = () => {
 
     return (
         <div ref={container} className="pt-32 pb-20 px-4 min-h-screen overflow-hidden">
+            <SEO
+                title="Case Studies"
+                description="Experience the evolution of digital architecture. Explore our collection of premium software and web engineering projects."
+            />
             <div className="max-w-[1400px] mx-auto">
                 <h1 className="portfolio-title text-[12vw] md:text-[180px] font-bold leading-[0.7] tracking-tighter uppercase mb-24">
-                    WORKS <span className="text-brand-green">®</span>
+                    <GlitchText text="WORKS" /> <span className="text-brand-green">®</span>
                 </h1>
 
                 <div className="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -127,8 +133,34 @@ const Portfolio = () => {
                             data-cursor="CASE STUDY"
                             className="project-card flex flex-col gap-6 group cursor-pointer perspective-1000"
                         >
-                            <div className="relative aspect-[3/4] arch-top overflow-hidden border border-black transition-transform duration-500 group-hover:scale-[0.98] preserve-3d">
-                                <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-grayscale duration-700" />
+                            <div
+                                className="relative aspect-[3/4] arch-top overflow-hidden border border-black transition-transform duration-500 group-hover:scale-[0.98] preserve-3d"
+                                onMouseEnter={(e) => {
+                                    const filter = document.querySelector('#liquid-filter feDisplacementMap');
+                                    if (filter) {
+                                        gsap.to(filter, {
+                                            attr: { scale: 100 },
+                                            duration: 0.8,
+                                            ease: "expo.out",
+                                            onComplete: () => {
+                                                gsap.to(filter, {
+                                                    attr: { scale: 0 },
+                                                    duration: 1.2,
+                                                    ease: "power2.inOut"
+                                                });
+                                            }
+                                        });
+                                    }
+                                }}
+                            >
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-grayscale duration-700"
+                                    style={{ filter: "url(#liquid-filter)" }}
+                                />
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
                                 <div className="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-black opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 z-10">
                                     <ArrowUpRight size={24} />
@@ -160,6 +192,14 @@ const Portfolio = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Liquid Distortion Filter */}
+            <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
+                <filter id="liquid-filter">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+            </svg>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Home, RefreshCcw, Ghost } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import SEO from '../components/SEO';
 
 const NotFound = () => {
     const container = useRef();
@@ -41,6 +42,10 @@ const NotFound = () => {
 
     return (
         <div ref={container} className="min-h-screen pt-32 pb-20 px-4 flex items-center justify-center bg-black text-white overflow-hidden">
+            <SEO
+                title="404 Protocol Void"
+                description="The requested digital coordinate does not exist. Please return to the mission control."
+            />
             <div className="max-w-4xl w-full text-center relative">
                 {/* Background Text Distortion */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">

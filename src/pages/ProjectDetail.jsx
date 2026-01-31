@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, Globe, Cpu, BarChart } from 'luc
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '../components/SEO';
 
 import nexusCoreImg from '../assets/generated/nexus_core.png';
 import vividUiImg from '../assets/generated/vivid_ui.png';
@@ -108,6 +109,11 @@ const ProjectDetail = () => {
 
     return (
         <div ref={container} className="pt-32 pb-20 px-4 min-h-screen">
+            <SEO
+                title={project.title}
+                description={project.description}
+                image={project.image}
+            />
             <div className="max-w-[1400px] mx-auto">
                 {/* Header Navigation */}
                 <div className="flex justify-between items-center mb-16">
@@ -147,7 +153,7 @@ const ProjectDetail = () => {
 
                 {/* Main Image */}
                 <div className="project-image-view aspect-[21/9] w-full border border-black rounded-[40px] overflow-hidden mb-32">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                 </div>
 
                 {/* Stats Grid */}
@@ -184,7 +190,7 @@ const ProjectDetail = () => {
                         </div>
                     </div>
                     <div className="order-1 lg:order-2 aspect-square rounded-[40px] overflow-hidden border border-black group">
-                        <img src={project.detailImage} alt="Technical Detail" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                        <img src={project.detailImage} alt="Technical Detail" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                     </div>
                 </div>
 
