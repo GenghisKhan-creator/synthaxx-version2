@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "@fontsource/outfit";
+@import "@fontsource/syne";
+
+@theme {
+  --color-bg-base: #FFFFFF;
+  --color-bg-subtle: #f4f8f6;
+  --color-accent-green-deep: #004d40;
+  --color-accent-green-mid: #00a878;
+  --color-accent-green-light: #d1e4e0;
+  --color-accent-green-mint: #e8f5e9;
+  --color-brand-green: #00a878;
+  --color-text-main: #000000;
+  --color-text-dim: #002d24;
+
+  --font-outfit: 'Outfit', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+}
+
+:root {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  font-family: var(--font-outfit);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.8s cubic-bezier(0.76, 0, 0.24, 1), color 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.theme-dark {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.theme-dark .text-black {
+  color: #fff !important;
+}
+
+.theme-dark .bg-white {
+  background-color: #000 !important;
+}
+
+.theme-dark .border-black {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-dark nav {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.theme-dark nav .bg-white {
+  background-color: #111 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-dark nav .text-black {
+  color: #fff !important;
+}
+
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  .cursor-pointer {
+    cursor: none;
+  }
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@layer base {
+  * {
+    border-color: #000000;
+  }
+}
+
+.pill-border {
+  border: 1px solid #000;
+  border-radius: 9999px;
+}
+
+.card-border {
+  border: 1px solid #000;
+}
+
+.arch-top {
+  border-top-left-radius: 1000px;
+  border-top-right-radius: 1000px;
+}
+
+.text-editorial {
+  font-family: var(--font-syne);
+}
+
+.marquee-text {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bg-grid {
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+.theme-dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 9999;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+}
