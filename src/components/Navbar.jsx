@@ -95,9 +95,9 @@ const Navbar = () => {
 
                 {/* Right: Search, CTA and Mobile Toggle */}
                 <div className="flex items-center gap-2 md:gap-4">
-                    <div className="p-2 border border-black rounded-full hover:bg-brand-green hover:text-white transition-all cursor-pointer hidden sm:block">
+                    {/* <div className="p-2 border border-black rounded-full hover:bg-brand-green hover:text-white transition-all cursor-pointer hidden sm:block">
                         <Search size={18} />
-                    </div>
+                    </div> */}
                     <Link to="/contact" data-cursor="LET'S GO" className="hidden sm:flex bg-black text-white px-5 py-1.5 rounded-full items-center gap-2 font-bold text-[13px] transition-all hover:bg-brand-green group border border-black shadow-[3px_3px_0px_rgba(0,168,120,0.5)] active:shadow-none translate-y-[-1px] active:translate-y-[1px]">
                         <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         <ScrambleText text="GET IN TOUCH" />
