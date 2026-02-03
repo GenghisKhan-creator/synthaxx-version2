@@ -43,8 +43,8 @@ const Preloader = ({ onComplete }) => {
                                 <span className="text-white/20 text-[10px] font-mono uppercase tracking-widest">V.1.0.6_BUILD_CORE</span>
                             </div>
                             <div className="text-white/20 text-[10px] font-mono text-right uppercase">
-                                SILICON VALLEY // CA<br />
-                                EST. 2026
+                                ACCRA // GH<br />
+                                EST. 2025
                             </div>
                         </div>
 
